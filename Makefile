@@ -4,9 +4,9 @@ INCLUDES = -I . -I external/raylib/include
 LDFLAGS  = -L external/raylib/lib -lraylib -lopengl32 -lgdi32 -lwinmm
 
 
-pathfinding: main.cpp
-	g++ -o pathfinding.exe main.cpp $(CXXFLAGS) $(INCLUDES) $(LDFLAGS)
+maze-solver: main.cpp
+	g++ -o maze-solver.exe main.cpp $(CXXFLAGS) $(INCLUDES) $(LDFLAGS)
 
 
 clean:
-	rm pathfinding.exe
+	rm maze-solver.exe
