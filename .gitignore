@@ -1,0 +1,9 @@
+
+# vscode stuff
+.vscode/
+
+# dependencies
+external/
+
+# executable
+**/*.exe
