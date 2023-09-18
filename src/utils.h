@@ -101,3 +101,39 @@ void edit_maze(Maze& maze) {
     
     last_edit_coord = cell_coord;
 }
+
+
+void draw_visited(const std::vector<bool>& visited) {
+    const Color visited_cell_color = YELLOW;
+
+    for (int row = 0; row < row_count; row++) {
+        for (int col = 0; col < col_count; col++) {
+            int cell_coord = row * col_count + col;
+
+            if (!visited[cell_coord] || cell_coord == start_coord || cell_coord == end_coord) {
+                continue;
+            }
+
+            int draw_pos_x = col * total_cell_size + cell_padding;
+            int draw_pos_y = row * total_cell_size + cell_padding;
+            DrawRectangle(draw_pos_x, draw_pos_y, cell_size, cell_size, visited_cell_color);
+        }
+    }
+}
+
+
+void draw_path(const std::vector<int>& path) {
+    const Color path_color = ORANGE;
+
+    for (int path_elem : path) {
+        if (path_elem == start_coord || path_elem == end_coord) {
+            continue;
+        }
+
+        int row = path_elem / col_count;
+        int col = path_elem % col_count;
+        int draw_pos_x = col * total_cell_size + cell_padding;
+        int draw_pos_y = row * total_cell_size + cell_padding;
+        DrawRectangle(draw_pos_x, draw_pos_y, cell_size, cell_size, path_color);
+    }
+}
