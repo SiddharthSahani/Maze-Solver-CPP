@@ -12,6 +12,8 @@ int total_cell_size;
 int start_coord = -1;
 int end_coord = -1;
 
+int last_edit_coord = -1;
+
 
 enum class CellType {
     PATH,
@@ -65,6 +67,10 @@ void edit_maze(std::vector<Cell>& maze) {
     int col = mouse_pos.x / (cell_size + 2*cell_padding);
     int cell_coord = row * col_count + col;
 
+    if (cell_coord == last_edit_coord) {
+        return;
+    }
+
     CellType& type = maze[cell_coord].type;
 
     if (IsMouseButtonDown(MouseButton::MOUSE_BUTTON_LEFT)) {
@@ -98,6 +104,8 @@ void edit_maze(std::vector<Cell>& maze) {
                 break;
         }
     }
+
+    last_edit_coord = cell_coord;
 }
 
 
