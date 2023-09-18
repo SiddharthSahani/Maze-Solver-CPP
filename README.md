@@ -15,3 +15,9 @@ A mini project to clear my understanding of algortihms used in pathfinding.
 - [ ] BreadthFirstSearch (BFS)
 - [ ] A-Star
 - [ ] Dijkstra
+
+---
+
+### Editing the maze
+- Hold LMB and move the mouse around the maze to toggle between path and wall
+- Hold RMB to set both start and end points
