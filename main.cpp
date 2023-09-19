@@ -4,6 +4,7 @@
 // algorithms
 #include "src/dfs.h"
 #include "src/bfs.h"
+#include "src/astar.h"
 
 
 int main() {
@@ -31,7 +32,8 @@ int main() {
         if (IsKeyPressed(KEY_SPACE) && (!algo || algo->completed())) {
             // spacebar is pressed and the current algorithm has found a path
             // algo = new DepthFirstSearchAlgo(maze);
-            algo = new BreadthFirstSearchAlgo(maze);
+            // algo = new BreadthFirstSearchAlgo(maze);
+            algo = new AStarAlgo(maze);
         }
 
         if (algo) {
