@@ -17,6 +17,8 @@ int main() {
 
     Maze maze(rows * cols);
 
+    int algo_id = 1; // 1 is for dfs ; 2 is for bfs ; 3 is for a-start
+
     BaseAlgo* algo = nullptr;
 
     while (!WindowShouldClose()) {
@@ -29,11 +31,27 @@ int main() {
 
         draw_maze(maze);
 
+        if (IsKeyDown(KEY_ONE)) {
+            algo_id = 1;
+        } else if (IsKeyDown(KEY_TWO)) {
+            algo_id = 2;
+        } else if (IsKeyDown(KEY_THREE)) {
+            algo_id = 3;
+        }
+
         if (IsKeyPressed(KEY_SPACE) && (!algo || algo->completed())) {
             // spacebar is pressed and the current algorithm has found a path
-            // algo = new DepthFirstSearchAlgo(maze);
-            // algo = new BreadthFirstSearchAlgo(maze);
-            algo = new AStarAlgo(maze);
+            switch (algo_id) {
+                case 1:
+                    algo = new DepthFirstSearchAlgo(maze);
+                    break;
+                case 2:
+                    algo = new BreadthFirstSearchAlgo(maze);
+                    break;
+                case 3:
+                    algo = new AStarAlgo(maze);
+                    break;
+            }
         }
 
         if (algo) {
