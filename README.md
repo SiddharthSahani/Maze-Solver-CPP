@@ -28,4 +28,4 @@ A mini project to clear my understanding of algortihms used in pathfinding.
 1. After setting up the maze, press `SPACE`
 2. When the maze is being solved, the visited cells will be highlighted
 3. When the maze is solved, the path will be highlighted
-4. To switch between the algorithms, edit `main.cpp`
+4. To switch between the algorithms, press `1` for dfs, `2` for bfs, `3` for a-star
