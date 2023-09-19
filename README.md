@@ -13,7 +13,7 @@ A mini project to clear my understanding of algortihms used in pathfinding.
 ## Algorithms implemented / to be implemented
 - [X] DepthFirstSearch (DFS)
 - [X] BreadthFirstSearch (BFS)
-- [ ] A-Star
+- [X] A-Star
 - [ ] Dijkstra
 
 ---
