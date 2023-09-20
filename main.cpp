@@ -21,6 +21,10 @@ int main() {
     float ratio = std::max(ratio_rows, ratio_cols);
     cell_size_px *= ratio;
 
+    if (cell_size_px <= 10) {
+        cell_padding_px = 1;
+    }
+
     setup(rows, cols, cell_size_px, cell_padding_px);
 
     int algo_id = 1; // 1 is for dfs ; 2 is for bfs ; 3 is for a-start
