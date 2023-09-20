@@ -5,6 +5,8 @@
 #include "src/dfs.h"
 #include "src/bfs.h"
 #include "src/astar.h"
+// maze loader
+#include "src/maze_loader.h"
 
 
 int main() {
@@ -13,9 +15,13 @@ int main() {
     int cell_size_px = 25;
     int cell_padding_px = 2;
 
-    setup(rows, cols, cell_size_px, cell_padding_px);
+    Maze maze = load_maze_from_file("mazes/40x70.txt", rows, cols);
+    float ratio_rows = 20 / (float) rows;
+    float ratio_cols = 35 / (float) cols;
+    float ratio = std::max(ratio_rows, ratio_cols);
+    cell_size_px *= ratio;
 
-    Maze maze(rows * cols);
+    setup(rows, cols, cell_size_px, cell_padding_px);
 
     int algo_id = 1; // 1 is for dfs ; 2 is for bfs ; 3 is for a-start
 
